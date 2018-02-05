@@ -32,7 +32,7 @@ module.exports = [{
         dataAboutAllBooks.push(getRating(allBooks[i]));
       }
       Promise.all(dataAboutAllBooks).then((values) => {
-        contents = values;
+        contents = JSON.parse(values);
         for (let i = 0; i < contents.length; i += 1) {
           db.users.create({
             author: contents.author,
