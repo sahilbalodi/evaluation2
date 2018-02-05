@@ -1,8 +1,8 @@
 
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define('User', {
+  const users = sequelize.define('users', {
     author: DataTypes.STRING,
-    id2: DataTypes.INTEGER,
+    bookid: DataTypes.INTEGER,
     name: DataTypes.STRING,
     rating: DataTypes.INTEGER,
   }, {
@@ -12,5 +12,6 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
   });
-  return User;
+  users.removeAttribute('id');
+  return users;
 };
