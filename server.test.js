@@ -32,3 +32,26 @@ describe('server ', () => {
     });
   });
 });
+describe('server ', () => {
+  test('server responds to the post request with statusCode 404 if path is incorrect', (done) => {
+    const req = {
+      method: 'POST',
+      url: '/abcd',
+      payload: JSON.stringify({ name: 'abcdefghi' }),
+    };
+    server.inject(req, (response) => {
+      expect(response.statusCode).toBe(404);
+      done();
+    });
+  });
+  test('server responds to the post request with statusCode 404 if get request is sent', (done) => {
+    const req = {
+      method: 'GET',
+      url: '/',
+    };
+    server.inject(req, (response) => {
+      expect(response.statusCode).toBe(404);
+      done();
+    });
+  });
+});
