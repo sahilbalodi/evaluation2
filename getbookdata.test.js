@@ -29,7 +29,25 @@ describe('server getbookdata ', () => {
   test('server responds to the get request with statusCode 400', (done) => {
     if (!verify('') === null) {
       server.inject('', (response) => {
-        expect(response.statusCode).toBe(400);
+        expect(response.statusCode).toBe(404);
+        done();
+      });
+    }
+    done();
+  });
+  test('server responds to the get request with statusCode 400', (done) => {
+    if (!verify(123) === null) {
+      server.inject(123, (response) => {
+        expect(response.statusCode).toBe(404);
+        done();
+      });
+    }
+    done();
+  });
+  test('server responds to the get request with statusCode 400', (done) => {
+    if (!verify('/') === null) {
+      server.inject('/', (response) => {
+        expect(response.statusCode).toBe(200);
         done();
       });
     }
