@@ -1,5 +1,4 @@
 const Hapi = require('hapi');
-// const Inert = require('inert');
 
 const server = new Hapi.Server();
 server.connection({
