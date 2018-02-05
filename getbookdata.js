@@ -1,17 +1,12 @@
 const Hapi = require('hapi');
+const allRoutes = require('./getdataroutes/routes.js');
 
 const server = new Hapi.Server();
 server.connection({
   host: 'localhost',
   port: 8090,
 });
-server.route({
-  path: '/',
-  method: 'GET',
-  handler: (request, response) => {
-    response('hey');
-  },
-});
+server.route(allRoutes);
 if (!module.parent) {
   server.start((error) => {
     if (error) { throw error; }
