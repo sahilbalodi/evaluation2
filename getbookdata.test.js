@@ -51,6 +51,5 @@ describe('server getbookdata ', () => {
         done();
       });
     }
-    done();
   });
 });
